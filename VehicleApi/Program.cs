@@ -32,7 +32,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
  
-//jhjhvjhv
 
 app.UseStaticFiles(new StaticFileOptions()
 {
