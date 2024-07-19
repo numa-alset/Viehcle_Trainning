@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VehicleApi.Controllers.Resources;
@@ -20,6 +21,7 @@ namespace VehicleApi.Controllers
             this.repository = repository;
             this.unitOfWork = unitOfWork;
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateVehicle(SaveVehicleResource vehicleResource)
         {

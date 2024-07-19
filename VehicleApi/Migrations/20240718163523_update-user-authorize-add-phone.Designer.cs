@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VehicleApi.Persistance;
 
@@ -12,9 +13,11 @@ using VehicleApi.Persistance;
 namespace VehicleApi.Migrations
 {
     [DbContext(typeof(VehicleApiDbContext))]
-    partial class VehicleApiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240718163523_update-user-authorize-add-phone")]
+    partial class updateuserauthorizeaddphone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -171,7 +174,7 @@ namespace VehicleApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Features", (string)null);
+                    b.ToTable("Features");
                 });
 
             modelBuilder.Entity("VehicleApi.Core.Models.FeatureVehicle", b =>
@@ -191,7 +194,7 @@ namespace VehicleApi.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("FeatureVehicles", (string)null);
+                    b.ToTable("FeatureVehicles");
                 });
 
             modelBuilder.Entity("VehicleApi.Core.Models.Make", b =>
@@ -209,7 +212,7 @@ namespace VehicleApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Makes", (string)null);
+                    b.ToTable("Makes");
                 });
 
             modelBuilder.Entity("VehicleApi.Core.Models.Model", b =>
@@ -232,7 +235,7 @@ namespace VehicleApi.Migrations
 
                     b.HasIndex("MakeId");
 
-                    b.ToTable("Models", (string)null);
+                    b.ToTable("Models");
                 });
 
             modelBuilder.Entity("VehicleApi.Core.Models.Photo", b =>
@@ -255,7 +258,7 @@ namespace VehicleApi.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("Photos", (string)null);
+                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("VehicleApi.Core.Models.User", b =>
@@ -284,7 +287,6 @@ namespace VehicleApi.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("NickName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
@@ -299,7 +301,6 @@ namespace VehicleApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
@@ -372,7 +373,7 @@ namespace VehicleApi.Migrations
 
                     b.HasIndex("ModelId");
 
-                    b.ToTable("Vehicles", (string)null);
+                    b.ToTable("Vehicles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

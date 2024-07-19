@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using VehicleApi.Core.Models;
 
 namespace VehicleApi.Persistance
 {
-    public class VehicleApiDbContext : DbContext
+    public class VehicleApiDbContext : IdentityDbContext<UserInfo>
     {
         public VehicleApiDbContext(DbContextOptions<VehicleApiDbContext>options): base(options) { }
 
